@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>
-	학사관리 시스템
+	SMS-스포츠 상대팀 매칭 서비스
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>

@@ -50,11 +50,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+               		<li>
+               			<a href="">팀명 : ${userSession.getTeamName()}</a>
+               		</li>
                     <li>
                         <a href="about.html">소개</a>
                     </li>
                     <li>
-                        <a href="services.html">마이페이지</a>
+                        <a href="${pageContext.request.contextPath}/teamController/myPage.do">마이페이지</a>
                     </li>
                     <li>
                         <a href="contact.html">자동매칭</a>

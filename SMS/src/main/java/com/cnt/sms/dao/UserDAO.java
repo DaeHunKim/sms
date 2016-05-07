@@ -58,11 +58,12 @@ public class UserDAO {
 			if(id.equals(userID) && password.equals(userPassword)) {
 				sql = "select * from user where userId = " + id;
 				pstmt = conn.prepareStatement(sql);
-				//rs = pstmt.executeQuery();
 				user = new User();
 				user.setUserID(rs.getString("userId"));
 				user.setTeamName(rs.getString("teamName"));
 				user.setPassword(rs.getString("password"));
+				user.setFileOrgName(rs.getString("fileOrgName"));
+				user.setFileNewName(rs.getString("fileNewName"));
 				closeConnection(conn, pstmt, rs);
 				return user;
 			}
@@ -75,13 +76,15 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "INSERT INTO user " + "(userId, teamName, password) values(?,?,?)";
+		String sql = "INSERT INTO user " + "(userId, teamName, password, fileOrgName, fileNewName) values(?,?,?,?,?)";
 		
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, user.getUserID());
 		pstmt.setString(2, user.getTeamName());
 		pstmt.setString(3, user.getPassword());
+		pstmt.setString(4, user.getFileOrgName());
+		pstmt.setString(5, user.getFileNewName());
 		pstmt.executeUpdate();
 		pstmt.close();
 		conn.close();
